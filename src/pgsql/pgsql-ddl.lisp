@@ -306,7 +306,7 @@
 (defmethod format-drop-sql ((fk fkey) &key (stream nil) cascade if-exists)
   (let* ((constraint-name (fkey-name fk))
          (table-name      (format-table-name (fkey-table fk))))
-    (format stream "disable_foreign_key_constraints();"
+    (format stream "CALL disable_foreign_key_constraints();"
             table-name if-exists constraint-name cascade)))
 
 
